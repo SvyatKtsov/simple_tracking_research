@@ -1,6 +1,6 @@
 # Single-Object Tracking on CPU: Correlation Filters vs. Siamese CNN vs. Transformer
 
-![demo](docs/media/demo.gif)
+![demo](code/docs/media/demo.gif)
 
 *VitTrack on clip C2 (fast motion), real time. Green = tracker, thin blue = ground truth, red = trajectory, top left = CPU time of the frame.*
 
@@ -52,7 +52,7 @@ mv results/trackers.csv results/trackers_published.csv     # keep the published 
 for v in clips/C*.mp4; do gt="${v%.mp4}_gt.txt"; tag=$(basename "$v" | cut -d_ -f1)
   for opt in "" "--gray" "--skip 2" "--skip 4" "--recover orb"; do
     python tracking.py --compare --source "$v" --gt "$gt" --tag "$tag" --no-show $opt; done; done
-python report.py      # -> results/tables.md (Tables 1-3) + docs/media/speed_accuracy.png (Figure 1)
+python report.py      # -> results/tables.md (Tables 1-3) + code/docs/media/speed_accuracy.png (Figure 1)
 ```
 Windows (PowerShell) version of the loop:
 ```powershell
@@ -102,7 +102,7 @@ python tracking.py --compare --source clips/my.mp4 --gt clips/my_gt.txt --tag MY
 | `report.py` | Builds Tables 1-3 and Figure 1 from `results/trackers.csv` |
 | `clips/` | The 8 recorded clips (C1-C8) and the label files, incl. P1's |
 | `results/` | Raw results (`trackers.csv`, `threads.csv`) and the generated `tables.md` |
-| `docs/media/` | Demo GIFs and Figure 1 |
+| `code/docs/media/` | Demo GIFs and Figure 1 |
 
 ---
 
@@ -139,7 +139,7 @@ python tracking.py --compare --source clips/my.mp4 --gt clips/my_gt.txt --tag MY
 | NanoTrack | **4.1** | **4.8** | **243** | **0.539** | **0.427** | 0 |
 | VitTrack | 6.3 | 9.2 | 160 | 0.396 | 0.363 | 13 |
 
-![Figure 1](docs/media/speed_accuracy.png)
+![Figure 1](code/docs/media/speed_accuracy.png)
 
 **Table 2. Success AUC per condition** (best in bold; within 0.015 = tie).
 
