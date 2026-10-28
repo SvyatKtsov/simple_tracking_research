@@ -1,0 +1,20 @@
+/*
+!/.gitignore
+!/README.md
+
+# single-object tracking
+!/code/
+/code/*
+!/code/tracking.py
+!/code/annotate.py
+!/code/report.py
+!/code/README.md
+!/code/requirements.txt
+!/code/results/
+!/code/docs/
+!/code/clips/
+
+__pycache__/
+*.mp4
+!/code/clips/*.mp4
+.venv/
